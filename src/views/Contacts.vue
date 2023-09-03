@@ -1,35 +1,36 @@
 <template>
-  <div class="view">
-    <h1 class="view-name">Settings</h1>
+    <div class="view">
+    <h1 class="view-name">Contacts</h1>
     <network-status />
+    <h1> HELLO CONTACTS </h1>
     <!-- settings tabs -->
     <TabsWrapper class="flex items-center text-xl font-semibold">
-      <TabComponent
+        <TabComponent
         v-for="(tab, tabIndex) in tabs"
         :key="`settings-view_tab-${tabIndex}`"
         :on-click="() => (activeTab = tab)"
         :active="tab === activeTab"
         >{{ tab }}</TabComponent
-      >
+        >
     </TabsWrapper>
     <!-- settings tabs -->
 
     <div class="bg-white shadow py-5 px-4 mt-4">
-      <!-- user content -->
-      <user-profile v-if="activeTab === 'user'" />
-      <!-- user content -->
+        <!-- user content -->
+        <user-profile v-if="activeTab === 'user'" />
+        <!-- user content -->
 
-      <!-- security content -->
-      <security-settings v-if="activeTab === 'security'" />
-      <!-- security content -->
+        <!-- security content -->
+        <security-settings v-if="activeTab === 'security'" />
+        <!-- security content -->
 
-      <!-- email content -->
-      <email-settings v-if="activeTab === 'email'" />
-      <!-- email content -->
+        <!-- email content -->
+        <email-settings v-if="activeTab === 'email'" />
+        <!-- email content -->
 
-      <misc v-if="activeTab === 'misc'" />
+        <misc v-if="activeTab === 'misc'" />
     </div>
-  </div>
+    </div>
 </template>
 
 <script>
@@ -39,23 +40,24 @@ import Misc from '@/components/settings/Misc.vue'
 import SecuritySettings from '@/components/settings/SecuritySettings.vue'
 import EmailSettings from '@/components/settings/EmailSettings.vue'
 import NetworkStatus from '@/components/settings/NetworkStatus.vue'
+import Contacts from '@/components/settings/NetworkStatus.vue'
 
 export default {
-  name: 'SettingsView',
-  components: {
+    name: 'SettingsView',
+    components: {
     UserProfile,
     EmailSettings,
     SecuritySettings,
     Misc,
     NetworkStatus
-  },
-  data: () => ({
+    },
+    data: () => ({
     activeTab: 'user',
     tabs: ['user', 'security', 'email', 'misc']
-  }),
-  async mounted() {
+    }),
+    async mounted() {
     this.activeTab = this.$route.params.activeTab
-  }
+    }
 }
 </script>
 
