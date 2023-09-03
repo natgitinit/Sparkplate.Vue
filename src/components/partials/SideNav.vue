@@ -25,7 +25,7 @@
       <span class="icon">
         <contact-icon :color="pathColor('contact')" />
       </span>
-      <span class="link-text">Settings</span>
+      <span class="link-text">Contacts</span>
     </router-link>
   </aside>
 </template>
