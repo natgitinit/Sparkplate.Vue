@@ -1,5 +1,10 @@
 <template>
-  <div class="view">
+  <div id="contacts-modal">
+    <button 
+      type="button"
+      class="view"
+      @click="showModal"> Open Modal! </button>
+
     <h1 class="view-name">Contacts</h1>
     <h1>HELLO CONTACTS</h1>
   </div>
@@ -7,28 +12,27 @@
 
 <script>
 // Components
-// import ContactsModal from '@/components/contacts/ContactsModal.vue'
-import VCards from 'vcards-js'
-import QRcode from 'qrcode'
+import ContactsModal from '@/components/contacts/ContactsModal.vue';
 
 export default {
-  name: 'ContactsView',
-  mounted() {
-    const vCard = VCards()
-    vCard.firstName = 'John'
-    vCard.middleName = 'Johnovich'
-    vCard.lastName = 'Snow'
-    vCard.note = 'user-id-1234'
-    console.log(vCard.getFormattedString())
-    QRcode.toDataURL(vCard.getFormattedString(), {}, (_err, url) => {
-      this.$refs.img.setAttribute('src', url)
-    })
-  },
-  components: {
-    // ContactsModal
-  },
-  data: () => ({})
-}
+    name: 'ContactsView',
+    components: {
+      ContactsModal 
+    },
+    data() {
+      return {
+        isModalVisible: false,
+      };
+    },
+    methods: {
+      showModal() {
+        this.isModalVisible = true;
+      },
+      closeModal() {
+        this.isModalVisible = false;
+      }
+    }
+  }
 </script>
 
 <style lang="scss" scoped></style>
