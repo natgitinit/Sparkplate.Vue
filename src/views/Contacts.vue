@@ -7,17 +7,30 @@
 
 <script>
 // Components
-// import Contacts from '@/components/contacts/ContactModal.vue'
+// import ContactsModal from '@/components/contacts/ContactsModal.vue'
+import VCards from 'vcards-js'
+import QRcode from 'qrcode'
 
 export default {
-  name: 'SettingsView',
-  components: {
-    //    ContactsQR
+  name: 'ContactsView',
+  mounted() {
+    const vCard = VCards()
+    vCard.firstName = 'John'
+    vCard.middleName = 'Johnovich'
+    vCard.lastName = 'Snow'
+    vCard.note = 'user-id-1234'
+    console.log(vCard.getFormattedString())
+    QRcode.toDataURL(vCard.getFormattedString(), {}, (_err, url) => {
+      this.$refs.img.setAttribute('src', url)
+    })
   },
-  data: () => ({}),
-  async mounted() {
-    this.activeTab = this.$route.params.activeTab
-  }
+  components: {
+    // ContactsModal
+  },
+  data: () => ({})
+  //     async mounted() {
+  //     this.activeTab = this.$route.params.activeTab
+  // }
 }
 </script>
 
