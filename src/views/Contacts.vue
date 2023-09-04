@@ -28,9 +28,6 @@ export default {
     // ContactsModal
   },
   data: () => ({})
-  //     async mounted() {
-  //     this.activeTab = this.$route.params.activeTab
-  // }
 }
 </script>
 
