@@ -1,6 +1,6 @@
 <template>
   <modal
-    name="contactModal"
+    name="contactsModal"
     height="auto"
     @before-open="onModalOpen"
     @closed="onModalClose"
@@ -25,18 +25,23 @@
 // import something from "./something.js"
 // import vCardsJS from "vcards-js"
 
+const initialState = () => ({
+  contacts: null
+})
+
 export default {
-  name: 'Content-1',
-  data() {
-    return {
-      InputData: ''
-    }
-  },
+  name: 'ContactsModal',
+  components: {},
+  data: initialState,
+  computed: {},
   methods: {
-    handleInput(emitEvent, value) {
-      this.$emit(emitEvent, value)
+    onModalOpen() {
+      // const { wallet } = payload.params
+      // this.wallet = wallet
     },
-    importContact() {}
+    onModalClose() {
+      Object.assign(this.$data, initialState())
+    }
   }
 }
 </script>
