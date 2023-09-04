@@ -5,9 +5,6 @@ module.exports = {
   directories: {
     output: 'dist_electron'
   },
-  configureWebpack: {
-    devtool: 'source-map'
-  },
   files: [
     'dist/**/*',
     '!**/node_modules/*/{CHANGELOG.md,README.md,README,readme.md,readme}',
