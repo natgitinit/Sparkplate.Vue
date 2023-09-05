@@ -1,27 +1,32 @@
 <template>
   <div id="contacts-modal">
-    <button type="button" class="btn" @click="showModal">IMPORT</button>
+    <h1 class="contacts-header">Contacts</h1>
+    <button type="button" class="btn btn-center" @click="showModal">
+      IMPORT
+    </button>
 
     <ContactsModal v-show="isModalVisible" @close="closeModal">
-      <template v-slot:header> This is a new modal header. </template>
-
+      <template v-slot:header>
+        <div class="modal-header">QR Code</div></template
+      >
       <template v-slot:body>
-        <VueVCard
-          orgPost="00000"
-          orgStreet="Some Street name"
-          orgRegion="Some Region"
-          orgCity="Some City"
-          orgCountry="LRK"
-          orgName="OrganizationName"
-          firstName="John"
-          lastName="Doe"
-          workPhone="5555555555"
-          homePhone="5555555555"
-        />
-        This is a new modal body.
+        <div class="qr-style">
+          <VueVCard
+            orgPost="00000"
+            orgStreet="5555 Street Name"
+            orgRegion="Some Region"
+            orgCity="Some City"
+            orgCountry="LRK"
+            orgName="OrganizationName"
+            firstName="John"
+            lastName="Doe"
+            workPhone="5555555555"
+            homePhone="5555555555"
+          />
+        </div>
       </template>
 
-      <template v-slot:footer> This is a new modal footer. </template>
+      <template v-slot:footer>Footer </template>
     </ContactsModal>
 
     <Transition>

@@ -51,6 +51,24 @@ export default {
 </script>
 
 <style>
+.modal-header {
+  font-size: 20px;
+}
+
+.qr-style {
+  margin: 0;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -ms-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+}
+
+.contacts-header {
+  font-size: 45px;
+  font-weight: bold;
+  text-align: center;
+}
 .modal-backdrop {
   position: fixed;
   top: 0;
@@ -75,6 +93,7 @@ export default {
 .modal-footer {
   padding: 15px;
   display: flex;
+  align-items: center;
 }
 
 .modal-header {
@@ -92,7 +111,27 @@ export default {
 
 .modal-body {
   position: relative;
-  padding: 20px 10px;
+  padding: 50px 50px;
+  align-items: center;
+}
+
+.btn {
+  position: absolute;
+  color: white;
+  background: #4aae9b;
+  border: 1px solid #4aae9b;
+  border-radius: 2px;
+  padding: 20px;
+  font-size: 18px;
+}
+
+.btn-center {
+  margin: 0;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -ms-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
 }
 
 .btn-close {
