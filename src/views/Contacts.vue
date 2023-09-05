@@ -4,11 +4,13 @@
     <button type="button" class="btn btn-center" @click="showModal">
       IMPORT
     </button>
-
+    <!-- Opens Modal to show QR code of Contact -->
     <ContactsModal v-show="isModalVisible" @close="closeModal">
       <template v-slot:header>
         <div class="modal-header">QR Code</div></template
       >
+
+      <!--interprets contact information to QR Code **TODOs: upload vcf file as contact and then turn to QR -->
       <template v-slot:body>
         <div class="qr-style">
           <VueVCard
