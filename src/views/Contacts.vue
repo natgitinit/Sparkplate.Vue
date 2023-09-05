@@ -2,11 +2,31 @@
   <div id="contacts-modal">
     <button 
       type="button"
-      class="view"
-      @click="showModal"> Open Modal! </button>
+      class="btn"
+      @click="showModal"> IMPORT </button>
+  
+      <ContactsModal
+        v-show="isModalVisible"
+        @close="closeModal" >
+    
+        <template v-slot:header>
+          This is a new modal header. 
+        </template>
 
-    <h1 class="view-name">Contacts</h1>
-    <h1>HELLO CONTACTS</h1>
+        <template v-slot:body>
+
+          This is a new modal body. 
+        </template>
+
+        <template v-slot:footer>
+          This is a new modal footer. 
+        </template>
+      </ContactsModal>
+
+    <Transition>
+      <Modal :handle-close="closeModal" :is-opened="isModalVisible" />
+    </Transition>
+
   </div>
 </template>
 
@@ -17,7 +37,7 @@ import ContactsModal from '@/components/contacts/ContactsModal.vue';
 export default {
     name: 'ContactsView',
     components: {
-      ContactsModal 
+      ContactsModal
     },
     data() {
       return {

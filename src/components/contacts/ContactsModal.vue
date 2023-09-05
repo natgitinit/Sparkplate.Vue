@@ -1,40 +1,34 @@
-<template>
-  <modal
-      v-show="isModalVisible"
-      height="auto"
-      @closed="closeModal"
-    >
-    <div class="modal-backdrop">
-      <div class="modal">
-        <header class="modal">
-        <slot name="header">
-        </slot>
-        <button 
-          type="button"
-          class="btn-close" >
-        x</button>
-      </header>
 
-        <section class="modal-body">
-        <slot name="body">
-          This is the default body!
-        </slot>
+<template>
+  <transition name="modal-fade">
+    <div class="modal-backdrop">
+      <div class="modal" role="dialog" aria-labelledby="modalTitle" aria-describedby="modalDescription">
+        <header class="modal-header" id="modalTitle">
+          <slot name="header">
+            This is the default title!
+          </slot>
+          <button type="button" class="btn-close" @click="close" aria-label="Close modal">
+            x
+          </button>
+        </header>
+
+        <section class="modal-body" id="modalDescription">
+          <slot name="body">
+            This is the default body!
+          </slot>
         </section>
 
         <footer class="modal-footer">
           <slot name="footer">
-          This is the default footer!
+            This is the default footer!
           </slot>
-          <button
-            type="button"
-            class="btn-green"
-            @click="close">
-          Close Modal
+          <button type="button" class="btn-green" @click="close" aria-label="Close modal">
+            Close Modal
           </button>
         </footer>
       </div>
     </div>
-  </modal>
+  </transition>
 </template>
 
 <script>
