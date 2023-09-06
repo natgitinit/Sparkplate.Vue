@@ -260,12 +260,25 @@ export default {
     @apply fixed z-10;
   }
 
-  .view {
+  div.view {
     @apply h-full py-2 px-3 overflow-y-auto;
+    overflow-x: hidden;
+    overflow-y: auto;
+    min-height: 100%;
+    position: relative;
 
     .view-name {
       @apply text-2xl mb-4 font-semibold;
     }
+  }
+
+  div.container {
+    overflow: visible;
+    height: 100%;
+  }
+
+  .view::-webkit-scrollbar {
+    display: none;
   }
 
   .main-content-wrapper {

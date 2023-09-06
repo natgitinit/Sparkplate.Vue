@@ -1,33 +1,35 @@
 <template>
   <div class="view">
-    <h1 class="view-name">Settings</h1>
-    <network-status />
-    <!-- settings tabs -->
-    <TabsWrapper class="flex items-center text-xl font-semibold">
-      <TabComponent
-        v-for="(tab, tabIndex) in tabs"
-        :key="`settings-view_tab-${tabIndex}`"
-        :on-click="() => (activeTab = tab)"
-        :active="tab === activeTab"
-        >{{ tab }}</TabComponent
-      >
-    </TabsWrapper>
-    <!-- settings tabs -->
+    <div class="container">
+      <h1 class="view-name">Settings</h1>
+      <network-status />
+      <!-- settings tabs -->
+      <TabsWrapper class="flex items-center text-xl font-semibold">
+        <TabComponent
+          v-for="(tab, tabIndex) in tabs"
+          :key="`settings-view_tab-${tabIndex}`"
+          :on-click="() => (activeTab = tab)"
+          :active="tab === activeTab"
+          >{{ tab }}</TabComponent
+        >
+      </TabsWrapper>
+      <!-- settings tabs -->
 
-    <div class="bg-white shadow py-5 px-4 mt-4">
-      <!-- user content -->
-      <user-profile v-if="activeTab === 'user'" />
-      <!-- user content -->
+      <div class="bg-white shadow py-5 px-4 mt-4">
+        <!-- user content -->
+        <user-profile v-if="activeTab === 'user'" />
+        <!-- user content -->
 
-      <!-- security content -->
-      <security-settings v-if="activeTab === 'security'" />
-      <!-- security content -->
+        <!-- security content -->
+        <security-settings v-if="activeTab === 'security'" />
+        <!-- security content -->
 
-      <!-- email content -->
-      <email-settings v-if="activeTab === 'email'" />
-      <!-- email content -->
+        <!-- email content -->
+        <email-settings v-if="activeTab === 'email'" />
+        <!-- email content -->
 
-      <misc v-if="activeTab === 'misc'" />
+        <misc v-if="activeTab === 'misc'" />
+      </div>
     </div>
   </div>
 </template>
