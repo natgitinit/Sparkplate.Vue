@@ -277,6 +277,10 @@ export default {
     height: 100%;
   }
 
+  .view::-webkit-scrollbar {
+    display: none;
+  }
+
   .main-content-wrapper {
     @apply h-full flex;
 
