@@ -21,6 +21,12 @@
       </span>
       <span class="link-text">Settings</span>
     </router-link>
+    <router-link v-ripple to="/create">
+      <span class="icon qr-icon">
+        <qr-code-icon :color="pathColor('qrcode')" />
+      </span>
+      <span class="link-text">Settings</span>
+    </router-link>
   </aside>
 </template>
 
@@ -30,13 +36,15 @@ import { mapGetters } from 'vuex'
 import FilesIcon from '../icons/Files.vue'
 import SettingsIcon from '../icons/Settings.vue'
 import WalletIcon from '../icons/Wallet.vue'
+import QrCodeIcon from '../icons/QrCode.vue'
 
 export default {
   name: 'SideNav',
   components: {
     FilesIcon,
     SettingsIcon,
-    WalletIcon
+    WalletIcon,
+    QrCodeIcon
   },
   computed: {
     ...mapGetters(['menuType'])
@@ -69,7 +77,7 @@ export default {
   height: calc(100vh - 4rem);
 
   a {
-    @apply flex items-center py-3 px-5 font-medium;
+    @apply block items-center py-3 px-5 font-medium;
 
     &:hover {
       @apply bg-gray-100;

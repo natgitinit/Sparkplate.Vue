@@ -69,6 +69,7 @@
 
 <script>
 export default {
+  name: 'QrCodeIcon',
   props: {
     color: String,
     default: () => ''
