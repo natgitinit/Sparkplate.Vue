@@ -5,6 +5,7 @@ import Directories from '../views/Directories.vue'
 import Test from '../views/Test.vue'
 import Settings from '../views/Settings.vue'
 import Create from '../views/Create.vue'
+import Import from '../views/Import.vue'
 
 Vue.use(VueRouter)
 
@@ -33,6 +34,11 @@ const routes = [
     path: '/create',
     name: 'Create',
     component: Create
+  },
+  {
+    path: '/import',
+    name: 'Import',
+    component: Import
   }
 ]
 

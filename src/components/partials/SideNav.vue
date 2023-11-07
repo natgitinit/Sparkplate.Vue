@@ -27,6 +27,12 @@
       </span>
       <span class="link-text">Settings</span>
     </router-link>
+    <router-link v-ripple to="/upload">
+      <span class="icon">
+        <import-icon :color="pathColor('import')" />
+      </span>
+      <span class="link-text">Settings</span>
+    </router-link>
   </aside>
 </template>
 
@@ -37,6 +43,7 @@ import FilesIcon from '../icons/Files.vue'
 import SettingsIcon from '../icons/Settings.vue'
 import WalletIcon from '../icons/Wallet.vue'
 import QrCodeIcon from '../icons/QrCode.vue'
+import ImportIcon from '../icons/Import.vue'
 
 export default {
   name: 'SideNav',
@@ -44,7 +51,8 @@ export default {
     FilesIcon,
     SettingsIcon,
     WalletIcon,
-    QrCodeIcon
+    QrCodeIcon,
+    ImportIcon
   },
   computed: {
     ...mapGetters(['menuType'])
