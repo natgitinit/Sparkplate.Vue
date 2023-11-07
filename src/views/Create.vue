@@ -1,17 +1,27 @@
 <template>
-  <modal name="create-modal">
-    <h1 class="view-name">Create</h1>
-    <div>HELLO WORLD</div>
+  <div name="create-view">
+    <h1 class="view-name">Create QR</h1>
     <CreateQR />
-  </modal>
+  </div>
 </template>
 
 <script>
 import CreateQR from '@/components/create/CreateQR.vue'
-// import VueQrcode from 'vue-qrcode'
 
 export default {
   name: 'CreateView',
   components: { CreateQR }
 }
 </script>
+
+<style lang="scss" scoped>
+.view-name {
+  font-size: 35px;
+  text-align: center;
+}
+
+.create-view {
+  display: flex;
+  align-items: center;
+}
+</style>
