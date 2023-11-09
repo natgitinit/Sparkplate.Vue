@@ -27,7 +27,7 @@
       </span>
       <span class="link-text">Settings</span>
     </router-link>
-    <router-link v-ripple to="/upload">
+    <router-link v-ripple to="/import">
       <span class="icon">
         <import-icon :color="pathColor('import')" />
       </span>
