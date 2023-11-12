@@ -1,6 +1,5 @@
 <template>
   <div name="import-view">
-    <h1>HELLO IMPORT</h1>
     <ImportFile />
   </div>
 </template>

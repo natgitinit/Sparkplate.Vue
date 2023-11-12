@@ -3,10 +3,10 @@ import http from '../http-common'
 class ImportFileService {
   upload(file, onUploadProgress) {
     let formData = new FormData()
-
     formData.append('file', file)
+    console.log(file)
 
-    return http.post('/upload', formData, {
+    return http.post('/import', formData, {
       headers: {
         'Content-Type': 'multipart/form-data'
       },
