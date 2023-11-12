@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <form @submit.prevent="upload" enctype="multipart/form-data">
     <div v-if="currentFile" class="progress">
       <div
         class="progress-bar progress-bar-info progress-bar-striped"
@@ -13,13 +13,11 @@
       </div>
     </div>
 
-    <label class="btn btn-default">
+    <label for="file" class="btn btn-default">
       <input type="file" ref="file" @change="selectFile" />
     </label>
 
-    <button class="btn btn-success" :disabled="!selectedFiles" @click="upload">
-      Upload
-    </button>
+    <button class="btn btn-success" @click="upload">Upload</button>
 
     <div class="alert alert-light" role="alert">{{ message }}</div>
 
@@ -35,20 +33,20 @@
         </li>
       </ul>
     </div>
-  </div>
+  </form>
 </template>
 
 <script>
 import ImportFileService from '../../service/ImportFileService'
 
 export default {
-  name: 'upload-files',
+  name: 'import-files',
   data() {
     return {
-      selectedFiles: undefined,
-      currentFile: undefined,
-      progress: 0,
+      file: '',
       message: '',
+      currentFile: '',
+      progress: 0,
 
       fileInfos: []
     }
@@ -60,12 +58,19 @@ export default {
   },
   methods: {
     selectFile() {
-      this.selectedFiles = this.$refs.file.files
+      const file = this.$refs.file.files[0]
+      this.file = file
+      console.log('file', file)
     },
     upload() {
+      const formData = new FormData()
+      formData.append('file', this.file)
+      console.log('formData file: ', this.file)
+
       this.progress = 0
 
-      this.currentFile = this.selectedFiles.item(0)
+      this.currentFile = this.file
+
       ImportFileService.upload(this.currentFile, (event) => {
         this.progress = Math.round((100 * event.loaded) / event.total)
       })
@@ -79,9 +84,10 @@ export default {
         .catch(() => {
           this.progress = 0
           this.message = 'Could not upload the file!'
-          this.currentFile = undefined
+          this.currentFile = ''
         })
-      this.selectedFiles = undefined
+
+      this.file = ''
     }
   }
 }
